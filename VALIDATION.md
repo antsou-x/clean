@@ -10,3 +10,7 @@ Windows, Python 3.12.10 : 14 tests découverts, 13 réussis et un test de liens 
 
 La suite couvre aussi la confirmation, le refus hors terminal ou en mode élevé, les chemins imposés, la protection des dépôts Git, les liens physiques, les nouveaux fichiers apparus après prévisualisation, le changement de contenu, les refus d’accès et une seconde exécution. La matrice CI lance la même suite sous Windows et macOS avec Python 3.11 et 3.12. Les résultats distants sont consultables dans GitHub Actions pour le commit proposé.
 
+
+## Exécution distante vérifiée
+
+Les quatre combinaisons Windows/macOS × Python 3.11/3.12 ont réussi sur le fork au commit `4f047b5`. Sur chaque Windows, 13 cas réussissent et le cas macOS est écarté. Sur chaque Mac, 12 cas réussissent et les deux cas propres à Windows sont écartés. [Résultats des quatre tâches](https://github.com/TrisaaPro/clean/actions/runs/42222500416).

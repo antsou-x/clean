@@ -9,4 +9,3 @@ Les suppressions individuelles sont définitives et le lot peut aboutir partiell
 L’audit lit des métadonnées et écrit sur sa sortie terminal. Le système peut enregistrer des accès. Aucun rapport sur le Bureau, accès réseau, contenu d’archive lu ou télémétrie applicative ne fait partie du parcours. Partagez uniquement les compteurs si les noms de paquets doivent rester confidentiels.
 
 Pour signaler un problème, donnez la version du système, celle de Python, la commande et un scénario sur des fichiers factices. Écartez les chemins personnels et les noms de paquets privés. En cas de résultat inattendu, interrompez le nettoyage.
-

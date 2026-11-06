@@ -26,4 +26,3 @@ La suppression est définitive. Le total annoncé mesure la taille logique des f
 Le [prompt français](PROMPT.md) guide l’entretien. La [politique](POLICY.md) détaille les critères d’admission et les [limites](SECURITY.md) expliquent les risques résiduels. La [fiche de validation](VALIDATION.md) donne les tests et leur provenance.
 
 Pour reproduire les tests, lancez `py -3 -B -m unittest discover -s tests -v` sous Windows ou `python3 -B -m unittest discover -s tests -v` sous macOS. Les essais de suppression utilisent des dossiers temporaires.
-

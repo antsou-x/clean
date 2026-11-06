@@ -16,4 +16,3 @@
 | Erreur pendant le retrait | Compter l’omission, continuer avec le reste du plan et rendre un code non nul |
 
 Les chemins libres, les profils redirigés par des variables de configuration pip, la suppression récursive et le vidage de la Corbeille sont hors périmètre. Les installations, les documents, les navigateurs, le trousseau et les fichiers de diagnostic ne font l’objet d’aucune opération prévue. Les privilèges supplémentaires et les changements de permissions sont exclus.
-

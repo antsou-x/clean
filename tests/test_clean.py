@@ -140,4 +140,3 @@ class Engine(unittest.TestCase):
     def test_no_arbitrary_path_option(self):
         with self.assertRaises(SystemExit), contextlib.redirect_stderr(io.StringIO()):
             clean.main(["--root", str(self.base)])
-
