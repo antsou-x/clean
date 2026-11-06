@@ -1,5 +1,12 @@
 # Changelog
 
+## v2 — proposition
+
+- Audit par défaut, compteurs partageables et entretien adaptatif en français.
+- Moteur Python commun à Windows et macOS pour les anciennes roues pip en cache.
+- Politique restrictive, tests sur fichiers factices et matrice CI native.
+- Les opérations plus larges de la v1.1 restent documentées dans l’historique.
+
 ## v1.1 — 2026-11-06
 
 Corrections issues d'un premier test réel (Windows, cache Chrome).
