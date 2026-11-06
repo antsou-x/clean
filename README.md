@@ -1,28 +1,29 @@
-# Prompt nettoyage ordi
+# Clean • Windows et macOS
 
-Un prompt pour assistant IA (Claude, ChatGPT…) qui génère un **script sur mesure** pour auditer puis nettoyer un PC Windows ou un Mac, en sécurité.
+Clean aide à estimer la place occupée par les anciennes archives de paquets Python (« roues ») dans le cache standard de pip. Si vous utilisez pip, ces archives peuvent servir à réinstaller un paquet sans le reconstruire. Si vous ne l’utilisez pas, un résultat de zéro est normal.
 
-## Comment ça marche
+## Premier audit
 
-1. Colle le contenu de [`PROMPT.md`](PROMPT.md) dans ton assistant IA.
-2. Réponds aux 13 questions (une par carte, par lettres : `A`, `AC`…). `retour` revient en arrière, `passer` garde l'option la plus prudente.
-3. Valide le récapitulatif.
-4. L'IA génère un script PowerShell (Windows) ou bash (Mac), vérifié deux fois, avec son mode d'emploi.
-5. Lance d'abord **l'audit seul** (lecture seule), fais-le analyser, puis seulement le nettoyage (`-Clean` / `--clean`).
+Extrayez le ZIP. Ouvrez un terminal ordinaire dans le dossier contenant `clean.py`. Utilisez Python 3.11 ou 3.12. Aucun paquet supplémentaire à installer.
 
-## Garanties de sécurité
+| Action | Windows (PowerShell) | macOS (Terminal) |
+|---|---|---|
+| Estimer le volume | `py -3 -B clean.py` | `python3 -B clean.py` |
+| Voir les noms sur votre écran | `py -3 -B clean.py --detail` | `python3 -B clean.py --detail` |
+| Obtenir les seuls compteurs à partager | `py -3 -B clean.py --share` | `python3 -B clean.py --share` |
+| Examiner la liste puis décider | `py -3 -B clean.py --clean` | `python3 -B clean.py --clean` |
 
-- Audit par défaut : rien n'est modifié sans `-Clean` / `--clean` et une confirmation `OUI`.
-- Jamais touchés : mots de passe, trousseau, cookies, historique, favoris, fichiers système hors caches, zones déclarées intouchables.
-- Admin / sudo seulement si nécessaire, et annoncé.
-- Aucun contournement de SIP, TCC ou fichiers verrouillés.
+`--share` affiche trois nombres dans le terminal. Vous décidez si vous les copiez ailleurs. `--detail` et `--clean` affichent des noms de paquets potentiellement privés.
 
-## Contenu
+## Décider de nettoyer
 
-| Fichier | Rôle |
-|---|---|
-| `PROMPT.md` | Le prompt à jour |
-| `CHANGELOG.md` | Historique des versions |
-| `exemples/nettoyage-cache-chrome-windows.ps1` | Exemple de script généré (Windows, cache Chrome, Corbeille) |
+Attendez la fin des installations et constructions pip. Vérifiez que vous pouvez retélécharger ou reconstruire chaque paquet. Conservez une copie si vous comptez travailler hors ligne. Lancez ensuite la dernière commande du tableau. Vérifiez toute la liste avant de taper exactement `OUI`. Entrée seule annule. Pour conserver un seul des fichiers proposés, annulez tout le lot.
 
-> 😄 Si après l'exécution de ce prompt rien ne change, c'est de ta faute !!! Pas de la faute d'Antsou.
+La suppression est définitive. Le total annoncé mesure la taille logique des fichiers, pas l’espace effectivement libéré. Un code de sortie 1 signale un refus, une interruption ou une opération incomplète. En cas d’erreur, refaites l’audit avant toute nouvelle tentative.
+
+## Assistant, règles et validation
+
+Le [prompt français](PROMPT.md) guide l’entretien. La [politique](POLICY.md) détaille les critères d’admission et les [limites](SECURITY.md) expliquent les risques résiduels. La [fiche de validation](VALIDATION.md) donne les tests et leur provenance.
+
+Pour reproduire les tests, lancez `py -3 -B -m unittest discover -s tests -v` sous Windows ou `python3 -B -m unittest discover -s tests -v` sous macOS. Les essais de suppression utilisent des dossiers temporaires.
+
